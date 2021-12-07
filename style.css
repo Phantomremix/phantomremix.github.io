@@ -14,12 +14,6 @@ body {
   background-color: rgb (200, 200, 200);
 }
 
-#formula {
-  height: auto;
-  max-width: 375px;
-  border: dashed 1px;
-}
-
 #container {
   border: solid 2px black;
   padding: 20px;
