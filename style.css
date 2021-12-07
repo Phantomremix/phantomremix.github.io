@@ -1,26 +1,16 @@
-html {
-  box-sizing: border-box;
-  font-size: 16px;
-}
-
 body {
-  margin: 1rem;
-  font-family: sans-serif;
-  line-height: 1.5;
-  background-color: lightyellow;
+  margin: 40px;
+  background-color: rgb(255, 148, 148);
+  font-size: 20px;
 }
 
 #outputParagraph {
-  background-color: rgb (200, 200, 200);
-}
-
-#formula {
-  height: auto;
-  max-width: 375px;
-  border: dashed 1px;
+  background-color: #cecece;
+  width: 300px;
+  padding: 10px;
 }
 
 #container {
-  border: solid 2px black;
-  padding: 20px;
+  border: 2px solid black;
+  padding: 15px;
 }

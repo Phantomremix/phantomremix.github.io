@@ -1,45 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="https://glitch.com/favicon.ico" />
-
-    <title>Hello world!</title>
-
-    <!-- import the webpage's stylesheet -->
-    <link rel="stylesheet" href="/style.css" />
-
-    <!-- import the webpage's javascript file -->
-    <script src="/script.js" defer></script>
+    <title>Convert Miles to Kilometers</title>
   </head>
+
+  <link rel="stylesheet" href="style.css" />
+
   <body>
-    <!-- this is the start of content -->
     <div id="container">
-      <h1>The Distance Formula</h1>
-      <img
-        id="formula"
-        src="http://computing.southern.edu/halterman/Courses/Fall2016/124/Labs/DistanceFormula/distanceformula2.png"
-      />
+      <h1>Convert Miles to Kilometers</h1>
+      <p>Enter Miles: <input type="text" id="miles" /></p>
 
-      <table>
-        <tr>
-          <td>Enter x<sub>1</sub>: <input type="text" size="5" id="x1" /></td>
-          <td>Enter y<sub>1</sub>: <input type="text" size="5" id="y1" /></td>
-        </tr>
-        <tr>
-          <td>Enter x<sub>2</sub>: <input type="text" size="5" id="x2" /></td>
-          <td>Enter y<sub>2</sub>: <input type="text" size="5" id="y2" /></td>
-        </tr>
-      </table>
+      <p id="outputParagraph">Kilometers = ???</p>
 
-      <button type="button" onclick="distance()">
-        Compute Distance
-      </button>
-
-      <p id="outputParagraph">
-        The distance will show up here
-      </p>
+      <p><button type="button" onClick="onConvertClick()">Convert</button></p>
     </div>
+
+    <script src="script.js"></script>
   </body>
 </html>
