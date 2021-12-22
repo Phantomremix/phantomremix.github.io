@@ -1,16 +1,10 @@
 body {
-  margin: 40px;
-  background-color: rgb(255, 148, 148);
-  font-size: 20px;
-}
+/*flexable layout structure*/
+display: flex;
 
-#outputParagraph {
-  background-color: #cecece;
-  width: 300px;
-  padding: 10px;
-}
+/*centers out sketch horzontally*/
+justify-content: center;
 
-#container {
-  border: 2px solid black;
-  padding: 15px;
+/*centers our sketch vertically*/
+align-items: center;
 }
