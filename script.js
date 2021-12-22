@@ -3,7 +3,7 @@ var hero;
 var gameWidth = window.innerWidth - 20;
 var gameHeight = window.innerHeight - 20;
 var dFactor = 20;
-var numberOfCircles = 25;
+var numberOfCircles = 30;
 var gameOver = false;
 
 function setup() {
@@ -100,7 +100,7 @@ Circle.prototype.renew = function() {
   }
 
   //sets diameter
-  this.d = dFactor + 10;
+  this.d = dFactor + 20;
 
   //random color
   this.r = random(0, 255);
