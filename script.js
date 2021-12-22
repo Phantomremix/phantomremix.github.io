@@ -100,7 +100,7 @@ Circle.prototype.renew = function() {
   }
 
   //sets diameter
-  this.d = dFactor + 20;
+  this.d = dFactor + 10;
 
   //random color
   this.r = random(0, 255);
