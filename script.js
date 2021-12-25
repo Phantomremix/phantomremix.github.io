@@ -3,7 +3,7 @@ var hero;
 var gameWidth = window.innerWidth - 20;
 var gameHeight = window.innerHeight - 20;
 var dFactor = 20;
-var numberOfCircles = 25;
+var numberOfCircles = 10;
 var gameOver = false;
 
 function setup() {
