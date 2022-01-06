@@ -3,8 +3,9 @@ var hero;
 var gameWidth = window.innerWidth - 20;
 var gameHeight = window.innerHeight - 20;
 var dFactor = 20;
-var numberOfCircles = 5;
+var numberOfCircles = 25;
 var gameOver = false;
+
 
 function setup() {
   createCanvas(gameWidth, gameHeight);
@@ -14,10 +15,15 @@ function setup() {
   textAlign(CENTER, CENTER);
 
   resetGame();
+  mouseX = gameWidth/2
+  mouseY = gameHeight/2
+  
+  
 }
 
 function draw() {
   if (!gameOver) {
+    
     background(0, 0, 0);
 
     hero.x = mouseX;
@@ -45,10 +51,12 @@ function draw() {
         Circles[c].renew();
       }
       textSize(15);
-      text(hero.score.toFixed(2) / 100 + " Seconds", mouseX, mouseY + 25);
+      text(hero.score.toFixed(2) / 100 + " Seconds", hero.x, hero.y + 25);
       textSize(50);
     }
     hero.score++;
+    console.log(numberOfCircles);
+    console.log(gameWidth);
   }
 }
 
@@ -56,12 +64,12 @@ function Circle() {
   this.renew();
 }
 
-Circle.prototype.show = function() {
+Circle.prototype.show = function () {
   fill(this.r, this.g, this.d);
   ellipse(this.x, this.y, this.d, this.d);
 };
 
-Hero.prototype.checkForCollison = function(circ) {
+Hero.prototype.checkForCollison = function (circ) {
   if (dist(this.x, this.y, circ.x, circ.y) < this.d / 2 + circ.d / 2) {
     if (this.d > circ.d || this.d < circ.d) {
       //larger
@@ -73,7 +81,7 @@ Hero.prototype.checkForCollison = function(circ) {
   return false;
 };
 
-Circle.prototype.renew = function() {
+Circle.prototype.renew = function () {
   // left or right orgin
   if (random(0, 2) > 1) {
     if (random(0, 2) > 1) {
@@ -107,7 +115,7 @@ Circle.prototype.renew = function() {
   this.g = random(0, 255);
   this.b = random(0, 255);
 };
-Circle.prototype.offCanvas = function() {
+Circle.prototype.offCanvas = function () {
   if (this.x < 0 || this.x > gameWidth) {
     return true;
   } else if (this.y < 0 || this.y > gameHeight) {
@@ -124,7 +132,7 @@ function Hero(x, y) {
   this.score = 0;
 }
 
-Hero.prototype.show = function() {
+Hero.prototype.show = function () {
   //body
   fill(255, 0, 0);
   ellipse(this.x, this.y, this.d, this.d);
@@ -136,6 +144,9 @@ Hero.prototype.show = function() {
 };
 function resetGame() {
   Circles = [];
+  if (gameWidth < 500) {
+    numberOfCircles = 5;
+  }
   for (var c = 0; c < numberOfCircles; c++) {
     Circles.push(new Circle());
   }
