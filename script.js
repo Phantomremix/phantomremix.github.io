@@ -151,7 +151,7 @@ Hero.prototype.show = function () {
 
   //stripes
   fill(255, 0, 0);
-  rect(this.x, this.y, 1, gameWidth);
+  rect(this.x, this.y / gameHeight, 1, gameHeight);
   rect(this.x / gameWidth, this.y, gameWidth, 1);
 };
 function resetGame() {
