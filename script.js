@@ -6,28 +6,29 @@ var dFactor = 20;
 var numberOfCircles = 25;
 var gameOver = false;
 
-
 function setup() {
   createCanvas(gameWidth, gameHeight);
   noStroke();
-  noCursor();
 
   textAlign(CENTER, CENTER);
 
   resetGame();
-  mouseX = gameWidth/2
-  mouseY = gameHeight/2
-  
-  
+  mouseX = gameWidth / 2;
+  mouseY = gameHeight / 2;
 }
 
 function draw() {
   if (!gameOver) {
-    
+    noCursor();
+
     background(0, 0, 0);
 
     hero.x = mouseX;
-    hero.y = mouseY;
+    if (gameWidth < 500) {
+      hero.y = mouseY - 50;
+    } else if (gameWidth > 500) {
+      hero.y = mouseY;
+    }
     hero.show();
 
     for (var c = 0; c < Circles.length; c++) {
@@ -40,10 +41,17 @@ function draw() {
         fill(255, 40, 40);
         text("Game Over", gameWidth / 2, gameHeight / 3);
         text(
-          hero.score.toFixed(2) / 100 + " Seconds",
+          hero.score.toFixed(2) / 50 + " Seconds",
           gameWidth / 2,
-          gameHeight / 1.6
+          gameHeight / 2
         );
+        textSize(40);
+        fill(0, 255, 0);
+        text("Click to Restart", gameWidth / 2, gameHeight / 1.5);
+        fill(0, 0, 255);
+        text("or", gameWidth / 2, gameHeight / 1.3);
+        fill(255, 0, 0);
+        text("Embrace Cowardice", gameWidth / 2, gameHeight / 1.15);
         break;
       }
 
@@ -51,12 +59,16 @@ function draw() {
         Circles[c].renew();
       }
       textSize(15);
-      text(hero.score.toFixed(2) / 100 + " Seconds", hero.x, hero.y + 25);
+      text(hero.score.toFixed(2) / 50 + " Seconds", hero.x, hero.y + 25);
       textSize(50);
     }
     hero.score++;
-    console.log(numberOfCircles);
-    console.log(gameWidth);
+  } else if (mouseClicked) {
+    resetGame();
+  }
+
+  if (gameOver) {
+    cursor();
   }
 }
 
@@ -65,7 +77,7 @@ function Circle() {
 }
 
 Circle.prototype.show = function () {
-  fill(this.r, this.g, this.d);
+  fill(this.r, this.g, this.b);
   ellipse(this.x, this.y, this.d, this.d);
 };
 
@@ -138,18 +150,27 @@ Hero.prototype.show = function () {
   ellipse(this.x, this.y, this.d, this.d);
 
   //stripes
-  fill(0, 100, 100);
-  rect(this.x - this.d / 2, this.y - 2, this.d, 4);
-  rect(this.x - 2, this.y - this.d / 2, 4, this.d);
+  fill(255, 0, 0);
+  rect(this.x, this.y / gameWidth, 1, gameWidth);
+  rect(this.x / gameWidth, this.y, gameWidth, 1);
 };
 function resetGame() {
   Circles = [];
-  if (gameWidth < 500) {
+  /*if (gameWidth < 500) {
     numberOfCircles = 5;
-  }
+  }*/
+  numberOfCircles = floor((gameWidth * 2 + gameHeight * 2) / 150)
+  console.log(numberOfCircles);
   for (var c = 0; c < numberOfCircles; c++) {
     Circles.push(new Circle());
   }
 
   hero = new Hero(gameWidth / 2, gameHeight / 2);
+}
+
+function mouseClicked() {
+  if (gameOver) {
+    resetGame();
+    gameOver = false;
+  }
 }
