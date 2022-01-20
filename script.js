@@ -77,7 +77,7 @@ function Circle() {
 }
 
 Circle.prototype.show = function () {
-  fill(this.r, this.g, this.b);
+  fill(0, 0, this.b);
   ellipse(this.x, this.y, this.d, this.d);
 };
 
@@ -125,7 +125,7 @@ Circle.prototype.renew = function () {
   //random color
   this.r = random(0, 255);
   this.g = random(0, 255);
-  this.b = random(0, 255);
+  this.b = random(100, 255);
 };
 Circle.prototype.offCanvas = function () {
   if (this.x < 0 || this.x > gameWidth) {
@@ -152,7 +152,7 @@ Hero.prototype.show = function () {
   //stripes
   fill(255, 0, 0);
   rect(this.x, this.y / gameWidth, 1, gameWidth);
-  rect(this.x / gameWidth, this.y, gameWidth, 1);
+  rect(this.x / gameWidth, this.y, gameHeight, 1);
 };
 function resetGame() {
   Circles = [];
