@@ -21,7 +21,7 @@ function draw() {
   if (!gameOver) {
     noCursor();
 
-    background(0, 0, 0);
+    background(255, 255, 255);
 
     hero.x = mouseX;
     if (gameWidth < 500) {
