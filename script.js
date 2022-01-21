@@ -25,7 +25,7 @@ function draw() {
 
     hero.x = mouseX;
     if (gameWidth < 500) {
-      hero.y = mouseY - 50;
+      hero.y = mouseY - 100;
     } else if (gameWidth > 500) {
       hero.y = mouseY;
     }
