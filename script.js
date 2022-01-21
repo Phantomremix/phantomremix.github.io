@@ -21,7 +21,7 @@ function draw() {
   if (!gameOver) {
     noCursor();
 
-    background(255, 255, 255);
+    background(0, 0, 0);
 
     hero.x = mouseX;
     if (gameWidth < 500) {
@@ -156,10 +156,7 @@ Hero.prototype.show = function () {
 };
 function resetGame() {
   Circles = [];
-  /*if (gameWidth < 500) {
-    numberOfCircles = 5;
-  }*/
-  numberOfCircles = floor((gameWidth * 2 + gameHeight * 2) / 150)
+  numberOfCircles = floor((gameWidth * 2 + gameHeight * 2) / 175)
   console.log(numberOfCircles);
   for (var c = 0; c < numberOfCircles; c++) {
     Circles.push(new Circle());
